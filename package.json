@@ -1,0 +1,16 @@
+{
+  "name": "godaddy-script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "GoDaddy_Scraper.js",
+  "dependencies": {
+    "puppeteer": "^2.0.0",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
