@@ -36,7 +36,7 @@ const fetchData = async (page, url, index) => {
 const thread = async (page, startInd, endInd) => {
     for (let ind = startInd; ind <= endInd; ind++) {
         console.log(`Checking ${domainNames[ind]}.com...`);
-        await fetchData(page, `https://il.godaddy.com/en/domainsearch/find?checkAvail=1&tmskey=&domainToCheck=${domainNames[ind]}.com`, ind + 1);
+        await fetchData(page, `https://www.godaddy.com/domainsearch/find?checkAvail=1&tmskey=&domainToCheck=${domainNames[ind]}`, ind + 1);
     }
 };
 
