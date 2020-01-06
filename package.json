@@ -4,7 +4,6 @@
   "description": "",
   "main": "GoDaddy_Scraper.js",
   "dependencies": {
-    "puppeteer": "^2.0.0",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {},
