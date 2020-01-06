@@ -1,4 +1,4 @@
-# Godaddy Scraper
+# GoDaddy Scraper
 
 ![Logo](godaddy-logo.png)</br>
 
