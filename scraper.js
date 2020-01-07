@@ -4,9 +4,17 @@ const { question } = require('readline-sync');
 
 console.log('\n*** GoDaddy Scraper ***\n')
 
-const [fromIndex, toIndex] = [+question('Check from index: '), +question('To index: ')];
+const domainNames = JSON.parse(fs.readFileSync('domain-names.json', 'utf-8'));
 
-const domainNames = JSON.parse(fs.readFileSync('domain-names.json', 'utf-8')).slice(fromIndex, toIndex + 1);
+const [startDim, endDim] = ['\x1b[2m', '\x1b[0m'];
+
+const [fromIndex, toIndex] = [
+    +question(`Search from index ${startDim}(default 0)${endDim}: `),
+    +question(`To index ${startDim}(default ${domainNames.length - 1})${endDim}: `)
+];
+
+const filteredDomainNames = domainNames.slice(fromIndex || 0, (toIndex || domainNames.length - 2) + 1);
+
 const domains = [];
 
 console.log();
@@ -14,10 +22,10 @@ console.log();
 (async () => {
     const promiseArray = [];
 
-    for (const domainName of domainNames) {
+    for (const domainName of filteredDomainNames) {
         process.stdout.clearLine();
         process.stdout.cursorTo(0);
-        process.stdout.write(`${~~((domainNames.indexOf(domainName) + 1) / domainNames.length * 100)}%`);
+        process.stdout.write(`${~~((filteredDomainNames.indexOf(domainName) + 1) / filteredDomainNames.length * 100)}%`);
 
         let data = '';
 
@@ -27,7 +35,7 @@ console.log();
                 res.on('end', () => {
                     const { ExactMatchDomain: { IsPurchasable, Price }, CurrentPriceDisplay } = JSON.parse(data);
                     domains.push([
-                        fromIndex + domainNames.indexOf(domainName),
+                        domainNames.indexOf(domainName),
                         domainName,
                         (IsPurchasable ? Price || CurrentPriceDisplay.slice(1) : 'taken')
                     ].join`, `);
