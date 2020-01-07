@@ -13,7 +13,7 @@ const [fromIndex, toIndex] = [
     +question(`To index ${startDim}(default ${domainNames.length - 1})${endDim}: `)
 ];
 
-const filteredDomainNames = domainNames.slice(fromIndex || 0, (toIndex || domainNames.length - 2) + 1);
+const filteredDomainNames = domainNames.slice(fromIndex || 0, (toIndex || domainNames.length - 1) + 1);
 
 const domains = [];
 

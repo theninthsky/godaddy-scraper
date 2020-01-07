@@ -1,15 +1,17 @@
 {
-  "name": "godaddy-script",
+  "name": "godaddy-scraper",
   "version": "1.0.0",
   "description": "",
-  "main": "GoDaddy_Scraper.js",
+  "main": "scraper.js",
   "dependencies": {
+    "namor": "^2.0.2",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node domain-names-generator && node scraper",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Almog Gabay",
   "license": "ISC"
 }
