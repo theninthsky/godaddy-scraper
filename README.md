@@ -17,6 +17,7 @@ You can also run them separately:
 <br>
 <i>node scraper</i>
 <br>
-Beware not to scrape more than 250 domains at a time, you'll get a "Too many requests" error from the server.
+<br>
+Beware that if you try to scrape more than 250 domains at a time you'll get a "Too many requests" error from the server.
 
 ![Results](images/results.png)
