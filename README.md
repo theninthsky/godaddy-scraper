@@ -9,15 +9,17 @@ The script guides you through generating random names in accordence to your pref
 ![CLI](images/cli.png)
 
 ## Usage
-### npm start
+
+### `npm start`
+
 Runs through <b><i>domains-names-generator.js</i></b> and then immidiately runs <b><i>scraper.js</i></b>.
 
-You can also run them separately: 
+You can also run them separately:
 <br>
 <br>
-<i>node domain-names-generator</i>
+`node domain-names-generator`
 <br>
-<i>node scraper</i>
+`node scraper`
 <br>
 <br>
 Beware that if you try to scrape more than 250 domains at a time you'll get a "Too many requests" error from the server.

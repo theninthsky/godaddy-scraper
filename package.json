@@ -7,10 +7,8 @@
     "namor": "^2.0.2",
     "readline-sync": "^1.4.10"
   },
-  "devDependencies": {},
   "scripts": {
-    "start": "node domain-names-generator && node scraper",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node domain-names-generator && node scraper"
   },
   "author": "Almog Gabay",
   "license": "ISC"
