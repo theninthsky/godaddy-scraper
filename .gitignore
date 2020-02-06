@@ -1,4 +1,3 @@
-/node_modules
-
-domain-names.json
-scraped-domains.csv
+node_modules
+src/util/domain-names.json
+src/results.csv

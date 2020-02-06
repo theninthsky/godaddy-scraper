@@ -2,13 +2,14 @@
   "name": "godaddy-scraper",
   "version": "1.0.0",
   "description": "",
-  "main": "scraper.js",
+  "main": "src/app.js",
   "dependencies": {
     "namor": "^2.0.2",
     "readline-sync": "^1.4.10"
   },
   "scripts": {
-    "start": "node domain-names-generator && node scraper"
+    "start": "node src/util/domain-names-generator && node src/app",
+    "scrape": "node src/app"
   },
   "author": "Almog Gabay",
   "license": "ISC"

@@ -8,23 +8,22 @@ const [startDim, endDim] = ['\x1b[2m', '\x1b[0m']
 
 const numOfNames = +question(`Number of names to generate: `)
 const numOfWords = +question(
-  `Number of words in a name ${startDim}(1, 2, 3, mix)${endDim}: `
+  `Number of words in a name ${startDim}(2, 3, default: mix)${endDim}: ` ||
+    'mix'
 )
 const dashSeparated =
-  numOfWords > 1 || Number.isNaN(numOfWords)
-    ? question(`Separate names by dash ${startDim}(Y/n)${endDim}? `)
-    : 'n'
+  question(`Separate names by dash ${startDim}(y/N)${endDim}? `) || 'n'
 
 const names = []
 
 for (let i = 0; i < numOfNames; i++) {
   names.push(
-    generate({ words: numOfWords || ~~(Math.random() * 3 + 1), saltLength: 0 })
+    generate({ words: numOfWords || ~~(Math.random() * 2 + 2), saltLength: 0 })
   )
 }
 
 fs.writeFileSync(
-  'domain-names.json',
+  `${__dirname}/domain-names.json`,
   JSON.stringify(
     dashSeparated != 'n' ? names : names.map(name => name.replace(/-/g, ''))
   )

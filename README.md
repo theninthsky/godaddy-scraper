@@ -12,16 +12,12 @@ The script guides you through generating random names in accordence to your pref
 
 ### `npm start`
 
-Runs through <b><i>domains-names-generator.js</i></b> and then immidiately runs <b><i>scraper.js</i></b>.
+Generates random domain names and starts scraping them.
 
-You can also run them separately:
-<br>
-<br>
-`node domain-names-generator`
-<br>
-`node scraper`
-<br>
-<br>
+### `npm run scrape`
+
+Scrapes an already created list of domain names.</br>
+
 Beware that if you try to scrape more than 250 domains at a time you'll get a "Too many requests" error from the server.
 
 ![Results](images/results.png)

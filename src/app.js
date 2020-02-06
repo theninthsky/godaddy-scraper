@@ -4,20 +4,22 @@ const { question } = require('readline-sync')
 
 console.log('\n*** GoDaddy Scraper ***\n')
 
-const domainNames = JSON.parse(fs.readFileSync('domain-names.json', 'utf-8'))
+const domainNames = JSON.parse(
+  fs.readFileSync(`${__dirname}/util/domain-names.json`, 'utf-8')
+)
 
 const [startDim, endDim] = ['\x1b[2m', '\x1b[0m']
 
-const [fromIndex, toIndex] = [
-  +question(`Search from index ${startDim}(default 0)${endDim}: `),
-  +question(
-    `To index ${startDim}(default ${domainNames.length - 1})${endDim}: `
-  )
-]
+const fromIndex = +question(
+  `Search from index ${startDim}(default 0)${endDim}: `
+)
+const toIndex = +question(
+  `To index ${startDim}(default ${fromIndex + 249})${endDim}: `
+)
 
 const filteredDomainNames = domainNames.slice(
   fromIndex || 0,
-  (toIndex || domainNames.length - 1) + 1
+  toIndex ? toIndex + 1 : fromIndex + 249 + 1
 )
 
 const domains = []
@@ -69,11 +71,14 @@ const startScraping = async () => {
 
   await Promise.all(promiseArray)
 
-  if (!fs.existsSync('scraped-domains.csv')) {
-    fs.writeFileSync('scraped-domains.csv', 'Index, Domain (.com), Price ($)\n')
+  if (!fs.existsSync(`${__dirname}/results.csv`)) {
+    fs.writeFileSync(
+      `${__dirname}/results.csv`,
+      'Index, Domain (.com), Price ($)\n'
+    )
   }
   fs.appendFile(
-    'scraped-domains.csv',
+    `${__dirname}/results.csv`,
     domains.sort((a, b) => +a.match(/\d+/)[0] - +b.match(/\d+/)[0]).join`\n` +
       '\n',
     () => {}
