@@ -2,7 +2,7 @@
   "name": "godaddy-scraper",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "src/index.js",
   "dependencies": {
     "namor": "^2.0.2",
     "readline-sync": "^1.4.10"
