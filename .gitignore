@@ -1,3 +1,4 @@
 node_modules
-src/util/domain-names.json
-src/results.csv
+
+src/lib/domain-names.json
+results.csv

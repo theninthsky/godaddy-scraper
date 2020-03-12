@@ -12,7 +12,11 @@ The script guides you through generating random names in accordence to your pref
 
 ### `npm start`
 
-Generates random domain names and starts scraping them.
+Generates a list of random domain names and scrapes it.
+
+### `npm run generate`
+
+Generates random domain names.
 
 ### `npm run scrape`
 

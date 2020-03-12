@@ -8,9 +8,15 @@
     "readline-sync": "^1.4.10"
   },
   "scripts": {
-    "start": "node src/util/domain-names-generator && node src/app",
-    "scrape": "node src/app"
+    "start": "npm run generate && npm run scrape",
+    "generate": "node src/lib/domain-names-generator",
+    "scrape": "node src/index",
+    "lint": "eslint .",
+    "deploy": "npm run lint && git push origin master"
   },
   "author": "Almog Gabay",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  }
 }
